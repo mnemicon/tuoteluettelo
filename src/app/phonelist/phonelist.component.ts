@@ -1,3 +1,34 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-phonelist',
+  templateUrl: './phonelist.component.html',
+  styleUrls: ['./phonelist.component.css']
+})
+export class PhonelistComponent implements OnInit {
+  phones: any = [];
+  phoneService: any;
+
+  constructor() {}
+
+  ngOnInit(): void {
+    this.getAllProducts();
+  }
+
+  getAllProducts(): void {
+    this.phoneService.getAllProducts().subscribe((data: any) => {
+      this.phones = data;
+    },
+    (error: any) => {
+      console.log('http-error:');
+      console.log(error);
+    });  
+  }
+}
+
+
+
+/*
 import { Component, Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -34,3 +65,4 @@ export class PhonelistComponent implements OnInit {
     return products;
   }
 }
+*/

@@ -1,1 +1,12 @@
-<p>phonelist works!</p>
+<p>phonelist in phonelist.component works!</p>
+<ul>
+    <i>first</i><br>
+    <i>second</i>
+</ul>
+
+<div >
+    <ul *ngFor="let phone of phones">
+        <li>{{ phone.name }}</li>
+        <li>{{ phones.age }}</li>
+    </ul>
+</div>

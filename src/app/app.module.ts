@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PhonelistComponent } from './phonelist/phonelist.component';
 
+import { PhoneService } from './phone.service';  //LISÄTTY 03.
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,7 @@ import { PhonelistComponent } from './phonelist/phonelist.component';
     BrowserModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [PhoneService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
