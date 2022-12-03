@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,14 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhonelistComponent implements OnInit {
   phones: any = [];
-  phoneService: any;
+  name = "";
+//  phoneService: any;
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
-    this.getAllProducts();
+    this.httpClient.get("assets/phones/phones.json").subscribe(data => {
+      this.phones = data;
+    })
+//    this.getAllProducts();
   }
+}
 
+
+
+  /*
   getAllProducts(): void {
     this.phoneService.getAllProducts().subscribe((data: any) => {
       this.phones = data;
@@ -28,7 +37,6 @@ export class PhonelistComponent implements OnInit {
 
 
 
-/*
 import { Component, Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
